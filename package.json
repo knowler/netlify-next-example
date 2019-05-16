@@ -1,0 +1,21 @@
+{
+  "name": "@knowler/netlify-next",
+  "version": "1.0.0",
+  "repository": "git@github.com:knowler/netlify-next.git",
+  "author": "Nathan Knowler <nathan@knowler.me>",
+  "license": "MIT",
+  "scripts": {
+    "build": "run-s build:{static,export}",
+    "build:static": "next build",
+    "build:export": "next export -o dist",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
