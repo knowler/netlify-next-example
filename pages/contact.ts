@@ -33,7 +33,7 @@ const Contact: React.FunctionComponent = () => {
         <header>
           <h1 fontSize={4} fontWeight={300} my={0}>Contact</h1>
         </header>
-        <Form data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
+        <Form name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
           <label display='block' mt={2} mb={3}>
             <span fontSize={1}>Name</span>
             <Text display='block' mt={1} field='name' />
