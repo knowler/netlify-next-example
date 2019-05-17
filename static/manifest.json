@@ -1,0 +1,20 @@
+{
+  "name": "Next App",
+  "short_name": "Next",
+  "icons": [
+    {
+      "src": "/static/app-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/app-splash.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#00d9af",
+  "background_color": "#161821"
+}

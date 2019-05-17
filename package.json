@@ -24,6 +24,7 @@
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.11",
     "babel-plugin-emotion": "^10.0.9",
+    "next-offline": "^4.0.0",
     "styled-system": "^4.2.2",
     "system-prop-sets": "^1.0.0"
   }

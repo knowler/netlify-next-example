@@ -39,6 +39,8 @@ export default class extends App {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Next</title>
           <meta name='description' content='A Next app on Netlify.' />
+          <link rel='manifest' href='/static/manifest.json' />
+          <link rel='icon' href='/static/favicon.png' />
         </Head>
         <ThemeContext.Provider value={theme}>
           <Global
