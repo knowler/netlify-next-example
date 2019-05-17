@@ -17,8 +17,8 @@ So far it incorporates the following:
 - [ ] Extract emotion styles to stylesheet.
   - Maybe inline critical?
     * There's really not that much styles to make a difference.
-- [ ] Code splitting using dynamic imports or whatever Next has
-      (I assume the former).
+- [x] ~~Code splitting using dynamic imports or whatever Next has
+      (I assume the former).~~
 - [ ] Pull data in from Ghost or another CMS.
   - Setup webhooks to trigger rebuild.
 
