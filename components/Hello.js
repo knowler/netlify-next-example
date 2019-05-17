@@ -1,1 +1,1 @@
-export const Hello = () => <h2>Hello</h2>
+export default () => <h2>Hello I am a dynamic module.</h2>

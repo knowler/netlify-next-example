@@ -1,5 +1,8 @@
 import * as React from 'react'
 import { Menu, Button } from '../components'
+import dynamic from 'next/dynamic'
+
+const DynamicHello = dynamic(() => import('../components/Hello'))
 
 const Home: React.FunctionComponent = () => {
   const [hello, setHello] = React.useState(false)
@@ -24,6 +27,7 @@ const Home: React.FunctionComponent = () => {
             <p><small>Sorry, this feature requires JavaScript to be enabled.</small></p>
           </noscript>
           <Button onClick={sayHello}>Say {hello ? 'Goodbye' : 'Hello'}!</Button>
+          {hello && <DynamicHello />}
         </section>
       </main>
     </>
