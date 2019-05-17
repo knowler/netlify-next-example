@@ -1,3 +1,3 @@
-module.handler = (event, context, callback) => {
+exports.handler = (event, context, callback) => {
   console.log(event, context)
 }
