@@ -3,7 +3,8 @@ import Head from 'next/head'
 import { Global, ThemeContext } from '@emotion/core'
 import { theme } from '../theme'
 import { themeGet } from 'styled-system'
-import { Offline } from '../components'
+import { Offline, Header } from '../components'
+import { PageTransition } from 'next-page-transitions'
 
 export default class extends App {
   constructor(props) {
@@ -57,9 +58,28 @@ export default class extends App {
                 fontFamily: 'sans-serif',
                 margin: 0,
               },
+              '.page-transition-enter': {
+                opacity: 0,
+                transform: 'translate3d(0, 20px, 0)',
+              },
+              '.page-transition-enter-active': {
+                opacity: 1,
+                transform: 'translate3d(0, 0, 0)',
+                transition: 'opacity 300ms, transform 300ms',
+              },
+              '.page-transition-exit': {
+                opacity: 1,
+              },
+              '.page-transition-exit-active': {
+                opacity: 0,
+                transition: 'opacity 300s',
+              },
             }}
           />
-          <Component {...pageProps} />
+          <Header />
+          <PageTransition timeout={300} classNames='page-transition'>
+            <Component {...pageProps} />
+          </PageTransition>
           {!this.state.online && <Offline />}
         </ThemeContext.Provider>
       </Container>
