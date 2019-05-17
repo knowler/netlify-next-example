@@ -1,9 +1,19 @@
 import App, { Container } from 'next/app'
 import Head from 'next/head'
-import { ThemeContext } from '@emotion/core'
+import { Global, ThemeContext } from '@emotion/core'
 import { theme } from '../theme'
+import { themeGet } from 'styled-system'
+import { Offline } from '../components'
 
 export default class extends App {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      online: true
+    }
+  }
+
   static async getInitialProps ({ Component, ctx }) {
     let pageProps = {}
 
@@ -12,6 +22,12 @@ export default class extends App {
     }
 
     return { pageProps }
+  }
+
+  componentDidMount() {
+    this.setState({ online: navigator.onLine })
+    window.addEventListener('online', () => this.setState({ online: true }))
+    window.addEventListener('offline', () => this.setState({ online: false }))
   }
 
   render () {
@@ -25,7 +41,23 @@ export default class extends App {
           <meta name='description' content='A Next app on Netlify.' />
         </Head>
         <ThemeContext.Provider value={theme}>
+          <Global
+            styles={{
+              '*,*::before, *::after': {
+                boxSizing: 'inherit',
+              },
+              html: {
+                boxSizing: 'border-box',
+              },
+              body: {
+                backgroundColor: theme.colors.mirage,
+                fontFamily: 'sans-serif',
+                margin: 0,
+              },
+            }}
+          />
           <Component {...pageProps} />
+          {!this.state.online && <Offline />}
         </ThemeContext.Provider>
       </Container>
     )

@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Menu } from '../components/Menu'
-import { Button } from '../components/Button'
+import { Menu, Button } from '../components'
 
 export default () => {
   const [hello, setHello] = useState(false)
