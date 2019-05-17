@@ -20,6 +20,7 @@ export default class extends App {
     return (
       <Container>
         <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Next</title>
           <meta name='description' content='A Next app on Netlify.' />
         </Head>

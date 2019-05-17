@@ -11,7 +11,9 @@ export default class extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta key="charSet" className="next-head" charSet="utf-8" />
+        </Head>
+        <body>
           <Global
             styles={{
               '*,*::before, *::after': {
@@ -26,8 +28,6 @@ export default class extends Document {
               },
             }}
           />
-        </Head>
-        <body>
           <Main />
           <NextScript />
         </body>

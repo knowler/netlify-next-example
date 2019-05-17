@@ -6,7 +6,7 @@ export default () => (
       <Menu />
     </header>
     <div>
-      <h1 fontSize={4} fontWeight={300} my={0}>Home</h1>
+      <h1 fontSize={4} fontWeight={300} my={0}>About</h1>
     </div>
   </main>
 )
