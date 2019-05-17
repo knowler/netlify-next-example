@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { Form, Text, TextArea } from 'informed'
+import { Form } from 'informed'
 import { Button } from '../components'
+import { Text } from '../components/forms'
 
 const encode = data =>
   Object.keys(data)
@@ -29,19 +30,25 @@ const Contact: React.FunctionComponent = () => {
       <header>
         <h1 fontSize={4} fontWeight={300} my={0}>Contact</h1>
       </header>
-      <Form name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
-        <label display='block' mt={2} mb={3}>
-          <span fontSize={1}>Name</span>
-          <Text display='block' mt={1} field='name' />
-        </label>
-        <label display='block' mt={2} mb={3}>
-          <span fontSize={1}>Email</span>
-          <Text display='block' mt={1} field='email' />
-        </label>
-        <label display='block' my={2}>
-          <span fontSize={1}>Message</span>
-          <TextArea display='block' mt={1} field='message' />
-        </label>
+      <Form mt={3} name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
+        <p my={0}>
+          <Text
+            label='Full Name'
+            field='name'
+            validate={value => !value ? 'Required' : null}
+            validateOnBlur
+            width='24rem'
+          />
+        </p>
+        <p my={0}>
+          <Text
+            label='Email'
+            field='email'
+            validate={value => !value ? 'Required' : null}
+            validateOnBlur
+            width='24rem'
+          />
+        </p>
         <p>
           <Button type='submit'>Submit</Button>
         </p>
