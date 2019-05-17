@@ -33,7 +33,11 @@ const menu = [
 export const Menu = () => (
   <nav>
     <ul display='flex' listStyle='none' pl={0} my={0}>
-      {menu.map((item, key) => <PageLink key={key} href={item.uri} label={item.name} />)}
+      {menu.map((item, key) => (
+        <li key={key}>
+          <PageLink key={key} href={item.uri} label={item.name} />
+        </li>
+      ))}
     </ul>
   </nav>
 )
