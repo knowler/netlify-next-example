@@ -2,26 +2,25 @@ import styled from '@emotion/styled'
 import { color, space } from 'styled-system'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
+import { themeGet } from 'styled-system'
 
-const A = styled.a({
-  cursor: 'pointer',
+const A = styled.a(props => ({
+  cursor: props.current ? 'default' : null,
+  color: 'white',
   borderBottom: '1px solid',
-  borderColor: '#00d9af',
+  borderColor: props.current ? '#00d9af' : 'transparent',
+  marginRight: themeGet('space.3')(props),
   textDecoration: 'none',
   transitionDuration: '0.2s',
   transitionProperty: 'color, border-color',
   ':hover': {
-    color: '#00d9af',
+    color: props.current ? null : '#00d9af',
   },
-}, color, space)
+}), color, space)
 
 const PageLink = withRouter(({ router, href, label }) => (
   <Link prefetch href={href} passHref>
-    <A
-      color='white'
-      mr={3}
-      borderColor={router.pathname === href ? 'transparent' : null}
-    >{label}</A>
+    <A current={router.pathname === href}>{label}</A>
   </Link>
 ))
 
