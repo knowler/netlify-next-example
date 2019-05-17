@@ -5,6 +5,7 @@ import Link from 'next/link'
 const A = styled.a({
   cursor: 'pointer',
   borderBottom: '1px solid #00d9af',
+  textDecoration: 'none',
   transitionDuration: '0.2s',
   transitionProperty: 'color, border-color',
   ':hover': {
@@ -21,7 +22,11 @@ export const Menu = () => (
   <nav>
     <ul display='flex' listStyle='none' pl={0} my={0}>
       {menu.map((item, key) => (
-        <li key={key}><Link href={item.uri}><A color='white' mr={3}>{item.name}</A></Link></li>
+        <li key={key}>
+          <Link prefetch href={item.uri} passHref>
+            <A color='white' mr={3}>{item.name}</A>
+          </Link>
+        </li>
       ))}
     </ul>
   </nav>
