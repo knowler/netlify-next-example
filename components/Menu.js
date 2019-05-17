@@ -2,7 +2,15 @@ import styled from '@emotion/styled'
 import { color, space } from 'styled-system'
 import Link from 'next/link'
 
-const A = styled.a({ cursor: 'pointer' }, color, space)
+const A = styled.a({
+  cursor: 'pointer',
+  borderBottom: '1px solid #00d9af',
+  transitionDuration: '0.2s',
+  transitionProperty: 'color, border-color',
+  ':hover': {
+    color: '#00d9af',
+  },
+}, color, space)
 
 const menu = [
   { uri: '/', name: 'Home' },
@@ -11,7 +19,7 @@ const menu = [
 
 export const Menu = () => (
   <nav>
-    <ul display='flex' listStyle='none' pl={0} mt={0} mb={4}>
+    <ul display='flex' listStyle='none' pl={0} my={0}>
       {menu.map((item, key) => (
         <li key={key}><Link href={item.uri}><A color='white' mr={3}>{item.name}</A></Link></li>
       ))}
