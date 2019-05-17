@@ -11,7 +11,7 @@ const Contact: React.FunctionComponent = () => (
       <header>
         <h1 fontSize={4} fontWeight={300} my={0}>Contact</h1>
       </header>
-      <Form netlify='true'>
+      <Form data-netlify='true'>
         <label display='block' mt={2} mb={3}>
           <span fontSize={1}>Name</span>
           <Text display='block' mt={1} field='name' />
