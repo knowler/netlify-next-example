@@ -17,8 +17,11 @@ const Contact: React.FunctionComponent = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...formApi.getValues() }),
     })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error))
+    .then(res => {
+      console.log(res)
+      alert("Success!")
+    })
+    .catch(error => alert(error))
   }
 
   return (
