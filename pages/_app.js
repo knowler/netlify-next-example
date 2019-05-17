@@ -26,6 +26,7 @@ export default class extends App {
   }
 
   componentDidMount() {
+    document.documentElement.classList.remove('nojs')
     this.setState({ online: navigator.onLine })
     window.addEventListener('online', () => this.setState({ online: true }))
     window.addEventListener('offline', () => this.setState({ online: false }))
@@ -62,6 +63,7 @@ export default class extends App {
                 opacity: 0,
                 transform: 'translate3d(0, 20px, 0)',
               },
+              '.nojs .page-transition-enter': { opacity: 1 },
               '.page-transition-enter-active': {
                 opacity: 1,
                 transform: 'translate3d(0, 0, 0)',
