@@ -27,6 +27,7 @@ const PageLink = withRouter(({ router, href, label }) => (
 const menu = [
   { uri: '/', name: 'Home' },
   { uri: '/about', name: 'About' },
+  { uri: '/contact', name: 'Contact' },
 ]
 
 export const Menu = () => (
