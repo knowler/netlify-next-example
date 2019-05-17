@@ -1,6 +1,7 @@
+import * as React from 'react'
 import { Menu } from '../components'
 
-export default () => (
+const About: React.FunctionComponent = () => (
   <>
     <header pt={4} px={4} pb={2} bg='mirage' color='white'>
       <Menu />
@@ -13,3 +14,5 @@ export default () => (
     </main>
   </>
 )
+
+export default About

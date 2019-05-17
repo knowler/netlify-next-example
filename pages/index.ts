@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import * as React from 'react'
 import { Menu, Button } from '../components'
 
-export default () => {
-  const [hello, setHello] = useState(false)
+const Home: React.FunctionComponent = () => {
+  const [hello, setHello] = React.useState(false)
 
   const sayHello = () => {
     setHello(!hello)
@@ -29,3 +29,5 @@ export default () => {
     </>
   )
 }
+
+export default Home
