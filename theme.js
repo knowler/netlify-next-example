@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
-    primary: '#161821',
-    black: '#212121',
+    mirage: '#161821',
+    green: '#00d9af',
     white: '#fff',
   },
   space: [0, 4, 8, 16, 32, 64, 128, 256],
