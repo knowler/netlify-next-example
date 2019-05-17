@@ -31,13 +31,13 @@ const Contact: React.FunctionComponent = () => {
       <header>
         <h1 fontSize={4} fontWeight={300} my={0}>Contact</h1>
       </header>
-      <Form display='flex' flexDirection='column' width='24rem' mt={3} name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
+      <Form display='flex' flexDirection='column' maxWidth='24rem' mt={3} name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
         <Text
           label='Full Name'
           field='name'
           validate={value => !value ? 'Required' : undefined}
           validateOnBlur
-          width='24rem'
+          width='100%'
           display='block'
         />
         <Text
@@ -45,7 +45,7 @@ const Contact: React.FunctionComponent = () => {
           field='email'
           validate={value => !value ? 'Required' : undefined}
           validateOnBlur
-          width='24rem'
+          width='100%'
           display='block'
         />
         <p>
