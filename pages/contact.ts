@@ -11,8 +11,8 @@ const encode = data =>
 const Contact: React.FunctionComponent = () => {
   const [formApi, setFormApi] = React.useState({})
 
-  const handleSubmit = event => {
-    fetch('/submit', {
+  const handleSubmit = () => {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...formApi.getValues() }),
@@ -33,7 +33,7 @@ const Contact: React.FunctionComponent = () => {
         <header>
           <h1 fontSize={4} fontWeight={300} my={0}>Contact</h1>
         </header>
-        <Form getApi={setFormApi} onSubmit={handleSubmit}>
+        <Form data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
           <label display='block' mt={2} mb={3}>
             <span fontSize={1}>Name</span>
             <Text display='block' mt={1} field='name' />
