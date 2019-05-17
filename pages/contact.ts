@@ -12,7 +12,7 @@ const Contact: React.FunctionComponent = () => {
   const [formApi, setFormApi] = React.useState({})
 
   const handleSubmit = event => {
-    fetch('/contact', {
+    fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...formApi.getValues() }),
