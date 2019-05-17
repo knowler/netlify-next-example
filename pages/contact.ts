@@ -2,6 +2,12 @@ import * as React from 'react'
 import { Form, Text, TextArea } from 'informed'
 import { Menu, Button } from '../components'
 
+const encode = data =>
+  Object.keys(data)
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+
+
 const Contact: React.FunctionComponent = () => {
   const [formApi, setFormApi] = React.useState({})
 

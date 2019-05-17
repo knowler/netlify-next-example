@@ -6,6 +6,7 @@ module.exports = withOffline(withTypeScript({
     return {
       '/': { page: '/' },
       '/about': { page: '/about' },
+      '/contact': { page: '/contact' },
     }
   },
 }))
