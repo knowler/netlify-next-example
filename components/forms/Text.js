@@ -5,17 +5,16 @@ import styled from '@emotion/styled'
 export const Text = asField(({ fieldState, ...props }) => {
   const { error } = fieldState
   const { label, width, ...rest } = props
-  console.log(fieldState)
 
   return (
-    <label width={width} display='inline-block' mt={2} mb={3}>
-      <div display='flex' justifyContent='space-between'>
+    <label width={width} mt={2} mb={3}>
+      <p display='flex' justifyContent='space-between' my={0}>
         <span fontSize={1}>{label}</span>&nbsp;
         <ErrorMessage
           opacity={error ? 1 : 0}
           children={error || null}
         />
-      </div>
+      </p>
       <BasicText
         {...rest}
         fieldState={fieldState}

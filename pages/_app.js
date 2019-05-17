@@ -33,7 +33,7 @@ export default class extends App {
   }
 
   render () {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, router } = this.props
 
     return (
       <Container>
@@ -80,7 +80,7 @@ export default class extends App {
           />
           <Header />
           <PageTransition timeout={300} classNames='page-transition'>
-            <Component {...pageProps} />
+            <Component {...pageProps} key={router.route} />
           </PageTransition>
           {!this.state.online && <Offline />}
         </ThemeContext.Provider>

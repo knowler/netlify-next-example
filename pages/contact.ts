@@ -10,7 +10,8 @@ const encode = data =>
 
 
 const Contact: React.FunctionComponent = () => {
-  const [formApi, setFormApi] = React.useState({})
+  const [formApi, setFormApi] = React.useState()
+  const [submitted, setSubmitted] = React.useState(false)
 
   const handleSubmit = () => {
     fetch('/', {
@@ -18,11 +19,11 @@ const Contact: React.FunctionComponent = () => {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact', ...formApi.getValues() }),
     })
-    .then(res => {
-      console.log(res)
-      alert("Success!")
-    })
-    .catch(error => alert(error))
+      .then(res => {
+        formApi.reset()
+        setSubmitted(true)
+      })
+      .catch(error => console.error(error))
   }
 
   return (
@@ -30,28 +31,27 @@ const Contact: React.FunctionComponent = () => {
       <header>
         <h1 fontSize={4} fontWeight={300} my={0}>Contact</h1>
       </header>
-      <Form mt={3} name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
-        <p my={0}>
-          <Text
-            label='Full Name'
-            field='name'
-            validate={value => !value ? 'Required' : null}
-            validateOnBlur
-            width='24rem'
-          />
-        </p>
-        <p my={0}>
-          <Text
-            label='Email'
-            field='email'
-            validate={value => !value ? 'Required' : null}
-            validateOnBlur
-            width='24rem'
-          />
-        </p>
+      <Form display='flex' flexDirection='column' width='24rem' mt={3} name='contact' data-netlify='true' getApi={setFormApi} onSubmit={handleSubmit}>
+        <Text
+          label='Full Name'
+          field='name'
+          validate={value => !value ? 'Required' : undefined}
+          validateOnBlur
+          width='24rem'
+          display='block'
+        />
+        <Text
+          label='Email'
+          field='email'
+          validate={value => !value ? 'Required' : undefined}
+          validateOnBlur
+          width='24rem'
+          display='block'
+        />
         <p>
           <Button type='submit'>Submit</Button>
         </p>
+        <p>{submitted && 'Submission successful'}</p>
       </Form>
     </main>
   )
