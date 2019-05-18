@@ -1,10 +1,15 @@
 import App, { Container } from 'next/app'
 import Head from 'next/head'
-import { Global, ThemeContext } from '@emotion/core'
+import { Global, ThemeContext, keyframes } from '@emotion/core'
 import { theme } from '../theme'
 import { themeGet } from 'styled-system'
 import { Offline, Header } from '../components'
 import { PageTransition } from 'next-page-transitions'
+
+const fadeIn = keyframes`
+  from: { opacity: 0 }
+  to { opacity: 1 }
+`
 
 export default class extends App {
   constructor(props) {
@@ -26,7 +31,6 @@ export default class extends App {
   }
 
   componentDidMount() {
-    document.documentElement.classList.remove('nojs')
     this.setState({ online: navigator.onLine })
     window.addEventListener('online', () => this.setState({ online: true }))
     window.addEventListener('offline', () => this.setState({ online: false }))
@@ -63,7 +67,6 @@ export default class extends App {
                 opacity: 0,
                 transform: 'translate3d(0, 20px, 0)',
               },
-              '.nojs .page-transition-enter': { opacity: 1 },
               '.page-transition-enter-active': {
                 opacity: 1,
                 transform: 'translate3d(0, 0, 0)',
@@ -79,7 +82,11 @@ export default class extends App {
             }}
           />
           <Header />
-          <PageTransition timeout={300} classNames='page-transition'>
+          <PageTransition
+            timeout={300}
+            skipInitialTransition
+            classNames='page-transition'
+          >
             <Component {...pageProps} key={router.route} />
           </PageTransition>
           {!this.state.online && <Offline />}

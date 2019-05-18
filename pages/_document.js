@@ -8,7 +8,7 @@ export default class extends Document {
 
   render() {
     return (
-      <Html lang="en" className="nojs">
+      <Html lang="en">
         <Head>
           <meta key="charSet" className="next-head" charSet="utf-8" />
         </Head>
